@@ -1,0 +1,15 @@
+{
+  "train_shape": [
+    19200,
+    24
+  ],
+  "val_shape": [
+    4800,
+    24
+  ],
+  "test_shape": [
+    6000,
+    24
+  ],
+  "random_state": 42
+}
