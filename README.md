@@ -43,7 +43,16 @@ The Random Forest clearly outperformed the Logistic Regression baseline (ROC-AUC
 
 **Top drivers of predicted default risk** (SHAP + permutation importance agree): most recent repayment status (`PAY_0`), repayment status two months prior (`PAY_2`), and credit limit (`LIMIT_BAL`) — consistent with real-world credit risk intuition, which is itself a useful sanity check on the model.
 
+![SHAP summary plot showing feature impact on model output](viz/shap_summary.png)
+*SHAP beeswarm plot — each dot is one applicant. Red = high feature value, blue = low. `PAY_0` and `PAY_2` clearly dominate.*
+
+![ROC and PR curve comparison between Logistic Regression and Random Forest](viz/roc_comparison.png)
+*Random Forest (final model) vs. Logistic Regression baseline — the tuned RF consistently separates defaulters from non-defaulters better across all thresholds.*
+
 **Fairness check:** recall was 54.2% for one sex group vs. 56.3% for the other — a modest, not alarming, gap. By education level, performance was more mixed across small subgroups (some groups had very few samples), a limitation worth flagging rather than hiding — exactly the kind of finding this fairness-audit step exists to surface.
+
+![Recall broken out by sex subgroup](viz/fairness_recall_by_sex.png)
+*Fairness audit: model recall compared across demographic subgroups, part of the compliance-oriented evaluation this project focuses on.*
 
 ## Tech stack
 
